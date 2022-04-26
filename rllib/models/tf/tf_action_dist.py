@@ -374,9 +374,9 @@ class DiagGaussian(TFActionDistribution):
     @staticmethod
     @override(ActionDistribution)
     def required_model_output_shape(
-        action_space: gym.Space, model_config: ModelConfigDict
-    ) -> Union[int, np.ndarray]:
-        return np.prod(action_space.shape, dtype=np.int32) * 2
+            action_space: gym.Space,
+            model_config: ModelConfigDict) -> Union[int, np.ndarray]:
+        return int(np.prod(action_space.shape)) * 2
 
 
 @DeveloperAPI
